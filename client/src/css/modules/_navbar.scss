@@ -1,0 +1,144 @@
+
+.overlay-navbar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(#000000, .5);
+  z-index: 98;
+  visibility: hidden;
+}
+
+.overlay-navbar.overlay-active {
+  visibility: visible;
+}
+
+.nav-container {
+  position: relative;
+  height: 80px;
+  background: var(--background-primary);
+  border-bottom: solid 1px #FFFFFF;
+}
+
+.btn-humberger.btn-humberger_active {
+  z-index: 100;
+  color: var(--red);
+  animation: openMenu 1s ease-in-out;
+}
+
+.nav-logo {
+  display: flex;
+  margin: auto;
+  width: 160px;
+  height: 160px;
+}
+
+.nav-primary {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--nav-bg);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -300px;
+  width: 300px;
+  transition: left 1s ease;
+  color: #000000;
+}
+
+.nav-primary.nav-open {
+  left: 0;
+  z-index: 100;
+  padding: .75rem 1.25rem;
+}
+
+.nav-open_logo {
+  margin-top: 50px;
+
+  img {
+    display: flex;
+    margin: auto;
+  }
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+
+  li {
+    padding: .75rem 1.25rem;
+    margin-bottom: .5rem;
+    width: max-content;
+    display: flex;
+    justify-content: center;
+
+    & a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: max-content;
+      color: #2E2E2E;
+      font-weight: 500;
+      font-family: $font-alt;
+      font-size: 18px;
+    }
+  }
+}
+
+.nav-list li a.active {
+  display: inline-block;
+
+  &:after {
+    content: "";
+    display: block;
+    background: #5172BE;
+    height: 2px;
+    width: calc(100% - 30px);
+    margin-left: auto;
+    margin-top: 5px;
+  }
+
+  svg {
+    color: #5172BE;
+  }
+}
+
+.nav-list {
+}
+
+.nav-footer {
+  margin-bottom: calc(var(--space) * 3);
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: var(--space);
+  }
+
+  li {
+    margin-top: 1rem;
+  }
+}
+
+.nav-footer {
+  h3 {
+    font-family: $font-alt;
+    text-align: center;
+    font-weight: 500;
+    color: var(--inverted-color);
+    font-size: 16px;
+  }
+
+  h3::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 30%;
+    margin: .5rem auto;
+    background: var(--line-color);
+  }
+}

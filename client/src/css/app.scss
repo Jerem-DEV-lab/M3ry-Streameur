@@ -1,27 +1,57 @@
 // Variables
 //===================
 
+:root {
+  --color: #424242;
+  --inverted-color: #494949;
+  --text-muted: rgba(#4C4C4C, .5);
+  --background-primary: #171E2E;
+  --body-color: #E9E9E9;
+  --border-color: #efefefef;
+  --line-color: #5172BE;
+  --shadow-color-light: rgba(#000000, .8);
+  --space: 8px;
+  --bg-btn: #171E2E;
+  --nav-bg: #FFFFFF;
+  --red: #f25353;
+}
+
 // Outils
 // ==================
 @import 'tools/reset';
 @import 'tools/mixins';
 @import 'tools/function';
+@import 'tools/animation';
 @import 'tools/layout';
 @import 'tools/typo';
 
-:root {
-  --color: #424242;
-  --text-muted: rgba(#4C4C4C, .5);
-  --background-primary: #171E2E;
-  --line-color: #5172BE;
-  --shadow-color: #FFFFFF;
-  --space: 8px;
+// Dark mode
+// =============
+@include dark {
+  --color: #FFFFFF;
+  --shadow-color-dark: #FFFFFF;
+  --bg-btn: #171E2E;
+  --btn-hover: rgba(255,255,255, .4);
+  --border-color: #FFFFFF;
+  --body-color: #151A26;
+  --nav-bg: #f8f7f7;
 }
+
+.lighten-dark {
+  filter: brightness(10);
+}
+
 
 body {
   font-family: $font;
   font-size: 16px;
   color: var(--color);
-  background: var(--background);
+  background: var(--body-color);
   height: 100vh;
 }
+
+//Modules
+//====================
+@import "modules/btn";
+@import "modules/navbar";
+

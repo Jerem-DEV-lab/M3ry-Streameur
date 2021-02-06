@@ -1,7 +1,7 @@
 // Variables
 // ==================
 $font: 'Inter', sans-serif;
-$font-alt: 'Inter', sans-serif;
+$font-alt: 'Poppins', sans-serif;
 
 %h1,
 .h1 {
@@ -43,4 +43,7 @@ $font-alt: 'Inter', sans-serif;
 
 .text-center {
   text-align: center;
+}
+.text-uppercase {
+  text-transform: uppercase;
 }

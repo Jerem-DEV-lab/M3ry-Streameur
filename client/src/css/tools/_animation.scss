@@ -1,0 +1,11 @@
+@keyframes openMenu {
+  0% {
+    color: #FFFFFF;
+    opacity: 0;
+  }
+  100% {
+    transform: rotateZ(360deg);
+    color: var(--red);
+    opacity: 1;
+  }
+}
