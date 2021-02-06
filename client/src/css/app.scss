@@ -1,0 +1,27 @@
+// Variables
+//===================
+
+// Outils
+// ==================
+@import 'tools/reset';
+@import 'tools/mixins';
+@import 'tools/function';
+@import 'tools/layout';
+@import 'tools/typo';
+
+:root {
+  --color: #424242;
+  --text-muted: rgba(#4C4C4C, .5);
+  --background-primary: #171E2E;
+  --line-color: #5172BE;
+  --shadow-color: #FFFFFF;
+  --space: 8px;
+}
+
+body {
+  font-family: $font;
+  font-size: 16px;
+  color: var(--color);
+  background: var(--background);
+  height: 100vh;
+}

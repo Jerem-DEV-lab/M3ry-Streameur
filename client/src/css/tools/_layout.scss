@@ -1,0 +1,132 @@
+:root {
+  --container-padding: 20px;
+  --container--width: calc(100vw - var(--container-padding) * 2);
+}
+
+@media only screen and (min-width: 900px) {
+  :root {
+    --container-padding: 32px;
+  }
+}
+
+@media only screen and (min-width: 1370px) {
+  :root {
+    --container-padding: 20px;
+    --container-width: 1330px;
+  }
+}
+
+// Container
+// ==============
+%container,
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: calc(50% - var(--container-width) / 2);
+  padding-right: calc(50% - var(--container-width) / 2);
+}
+
+// Container
+// ==============
+@for $i from 0 through 5 {
+  body {
+    .p-#{$i} {
+      padding: space($i);
+    }
+
+    .pt-#{$i} {
+      padding-top: space($i);
+    }
+
+    .pb-#{$i} {
+      padding-bottom: space($i);
+    }
+
+    .px-#{$i} {
+      padding-left: space($i);
+      padding-right: space($i);
+    }
+
+    .py-#{$i} {
+      padding-top: space($i);
+      padding-bottom: space($i);
+    }
+
+    .my-#{$i} {
+      margin-top: space($i);
+      margin-bottom: space($i);
+    }
+
+    .m-#{$i} {
+      margin: space($i);
+    }
+
+    .mx-#{$i} {
+      margin-left: space($i);
+      margin-right: space($i);
+    }
+
+    .mt-#{$i} {
+      margin-top: space($i);
+    }
+
+    .mb-#{$i} {
+      margin-bottom: space($i);
+    }
+
+    .mr-#{$i} {
+      margin-right: space($i);
+    }
+
+    .ml-#{$i} {
+      margin-left: space($i);
+    }
+  }
+}
+
+.mobile-only {
+  @include up(700) {
+    display: none;
+  }
+}
+
+.mobile-hidden {
+  @include down(700) {
+    display: none;
+  }
+}
+
+// Grille
+// ==================
+.grid-top-bar {
+  width: 100%;
+  display: grid !important;
+  --gap: 2;
+  grid-gap: calc(var(--gap) * var(--space));
+  grid-template-columns: 1fr 45px;
+
+  @include up(730) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.grid {
+  width: 100%;
+  display: grid !important;
+  grid-gap: space(2);
+  grid-template-columns: repeat(auto-fill, minmax(var(--col, 275px), 1fr));
+}
+.grid2{
+  width: 100%;
+  display: grid !important;
+  grid-gap: calc(var(--space) * 2);
+  grid-template-columns: var(--col) 1fr;
+  @include down(1300){
+    grid-template-columns: 2fr 1fr;
+  }
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
