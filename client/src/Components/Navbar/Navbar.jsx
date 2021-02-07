@@ -12,6 +12,10 @@ const Navbar = () => {
             <div className="nav-logo">
                 <img src="/assets/navbar/Logo.png" alt="logo"/>
             </div>
+            <div className="nav-charms">
+                <img src="/assets/navbar/charms.png" alt="emblème déblocable dans le jeu Raimbow Six Siège"
+                     title="Obtiens dès maintenant ton charms"/>
+            </div>
             <button className={`btn-humberger ${menuOpen ? "btn-humberger_active" : ""}`}
                     onClick={() => setMenuOpen(!menuOpen)}>
                 {!menuOpen ? <FaBars size={30}/> : <FaTimes size={30}/>}

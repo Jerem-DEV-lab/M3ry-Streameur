@@ -91,8 +91,8 @@
 }
 
 .mobile-hidden {
-  @include down(700) {
-    display: none;
+  @include down(767.98) {
+    display: none !important;
   }
 }
 
@@ -122,6 +122,14 @@
   grid-template-columns: var(--col) 1fr;
   @include down(1300){
     grid-template-columns: 2fr 1fr;
+  }
+}
+.grid-footer{
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height:200px;
+  @include up(767.98) {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 .row {

@@ -31,10 +31,20 @@
   background-color: var(--bg-btn);
 }
 
-.btn-humberger {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  padding: 0;
-  border: none;
+.btn-enter {
+  display: flex;
+  margin: 70px auto 0;
+  @extend %btn;
+  background: #171E2E;
+  border-radius: 5px;
+  border: 1px solid #FFFFFF;
+  text-transform: uppercase;
+  font-size: 36px;
+  box-shadow: 0 1px 10px #FFFFFF;
+  padding: .35rem 2.1rem;
+  transition: all .5s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 1px 30px #FFFFFF;
+  }
 }
