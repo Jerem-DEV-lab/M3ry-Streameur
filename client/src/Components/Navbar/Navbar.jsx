@@ -4,7 +4,7 @@ import {MenuItems, SocialNetworks} from "./MenuItems";
 import {NavLink} from "react-router-dom";
 
 const Navbar = () => {
-    const [menuOpen, setMenuOpen] = useState(true);
+    const [menuOpen, setMenuOpen] = useState(false);
     return <>
         <div className={`overlay-navbar ${menuOpen ? "overlay-active" : "nav-disable"}`}
              onClick={() => setMenuOpen(!menuOpen)}/>
