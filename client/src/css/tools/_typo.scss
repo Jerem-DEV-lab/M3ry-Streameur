@@ -1,11 +1,11 @@
 // Variables
 // ==================
-$font: 'Inter', sans-serif;
+$font: 'Poppins', sans-serif;
 $font-alt: 'Poppins', sans-serif;
 
 %h1,
 .h1 {
-  font-family: $font;
+  font-family: $font-alt;
   font-weight: 700;
   font-style: normal;
   font-size: 32px;
@@ -46,4 +46,14 @@ $font-alt: 'Poppins', sans-serif;
 }
 .text-uppercase {
   text-transform: uppercase;
+}
+
+%text-alert-link,
+.text-alert-link{
+  color: var(--red);
+  font-weight: 600;
+  transition: color .5s ease-in-out;
+  &:hover{
+    color: var(--inverted-color);
+  }
 }

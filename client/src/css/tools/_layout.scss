@@ -24,11 +24,12 @@
   width: 100%;
   padding-left: calc(50% - var(--container-width) / 2);
   padding-right: calc(50% - var(--container-width) / 2);
+  overflow: hidden;
 }
 
 // Container
 // ==============
-@for $i from 0 through 5 {
+@for $i from 0 through 12 {
   body {
     .p-#{$i} {
       padding: space($i);
@@ -132,9 +133,31 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+.grid-no-live{
+  display: grid;
+  justify-content: center;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: var(--space);
+  grid-row-gap: var(--space);
+  @include down(899.98){
+    grid-template-columns: 1fr;
+  }
+}
 .row {
   display: flex;
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
+}
+
+.d-flex{
+  display: flex !important;
+}
+.align-center{
+  align-items: center;
+}
+.overflow-hidden{
+  overflow: hidden;
 }

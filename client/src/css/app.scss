@@ -9,6 +9,7 @@
   --body-color: #E9E9E9;
   --border-color: #efefefef;
   --line-color: #5172BE;
+  --line-color-inverted: #5172BE;
   --shadow-color-light: rgba(#000000, .8);
   --space: 8px;
   --bg-btn: #171E2E;
@@ -29,8 +30,10 @@
 // =============
 @include dark {
   --color: #FFFFFF;
+  --inverted-color: #FFFFFF;
   --shadow-color-dark: #FFFFFF;
   --bg-btn: #171E2E;
+  --line-color-inverted: #FFFFFF;
   --btn-hover: rgba(255,255,255, .4);
   --border-color: #FFFFFF;
   --body-color: #151A26;
@@ -52,6 +55,7 @@ body {
 
 //Modules
 //====================
+@import "modules/loader";
 @import "modules/btn";
 @import "modules/navbar";
 @import "modules/footer";
