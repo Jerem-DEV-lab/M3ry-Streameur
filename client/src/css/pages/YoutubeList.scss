@@ -1,0 +1,17 @@
+.youtube-layout{
+  margin-top: 150px; //a supprimer
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: calc(var(--space) * 3);
+  row-gap: calc(var(--space) * 3);
+  background: red; // a supprimer ou changer
+
+  .ae{
+  background: green;
+    min-height: 200px;
+}
+  .e{
+    background: yellow;
+    min-height: 200px;
+  }
+}

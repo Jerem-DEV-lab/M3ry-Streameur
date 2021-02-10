@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {FaBars, FaTimes} from "react-icons/fa";
 import {MenuItems, SocialNetworks} from "./MenuItems";
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -10,11 +10,15 @@ const Navbar = () => {
              onClick={() => setMenuOpen(!menuOpen)}/>
         <div className="nav-container">
             <div className="nav-logo">
-                <img src="/assets/navbar/Logo.png" alt="logo"/>
+                <Link to="/">
+                    <img src="/assets/navbar/Logo.png" alt="logo"/>
+                </Link>
             </div>
             <div className="nav-charms">
-                <img src="/assets/navbar/charms.png" alt="emblème déblocable dans le jeu Raimbow Six Siège"
-                     title="Obtiens dès maintenant ton charms"/>
+                <Link to="/aide/charms">
+                    <img src="/assets/navbar/charms.png" alt="emblème déblocable dans le jeu Raimbow Six Siège"
+                         title="Obtiens dès maintenant ton charms"/>
+                </Link>
             </div>
             <button className={`btn-humberger ${menuOpen ? "btn-humberger_active" : ""}`}
                     onClick={() => setMenuOpen(!menuOpen)}>
@@ -29,7 +33,7 @@ const Navbar = () => {
                     <ul className="nav-list">
                         {MenuItems.map((link) => <>
                             <li key={link.label}>
-                                <NavLink to={link.url} className="nav-item">{link.icons}&nbsp;{link.label}</NavLink>
+                                <NavLink to={link.url} activeClassName="active" className="nav-item">{link.icons}&nbsp;{link.label}</NavLink>
                             </li>
                         </>)}
                     </ul>

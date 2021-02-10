@@ -17,7 +17,7 @@ export const MenuItems = [
     },
     {
         label: "Youtube",
-        url: "/youtube-videos",
+        url: "/videos/youtube",
         icons: <FaYoutube size={22}/>
     }
 ]

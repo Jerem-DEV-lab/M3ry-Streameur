@@ -1,0 +1,27 @@
+.charms-img {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  img{
+    height: 150px;
+    width: 150px;
+  }
+}
+
+.container-body-text{
+  p{
+    line-height: 55px;
+    font-size: 18px;
+    span{
+      margin-top: .5rem;
+    }
+  }
+}
+
+.container-footer{
+  .follow-link{
+    display: flex;
+    justify-content: center;
+    padding: .5rem;
+  }
+}

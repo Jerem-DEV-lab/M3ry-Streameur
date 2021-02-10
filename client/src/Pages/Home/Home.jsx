@@ -1,47 +1,25 @@
 import React, {useState, useEffect, useContext} from 'react';
-import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import ModalEnter from "../../Components/ModalEnter";
-import axios from "axios";
 import {ThemeContext} from "../../context/ThemeContext";
 import TwitchChat from "../../Components/Twitch/TwitchChat";
 import TwitchFluxVideo from "../../Components/Twitch/TwitchFluxVideo";
 import Loader from "../../Components/ui/Loader";
 import {FaEye} from "react-icons/fa";
+import {isEmpty} from "../../utils";
+import Youtube from "../../Components/YoutubeEmbed";
+import {YoutubeContext} from "../../context/YoutubeContext";
+import {TwitchContext} from "../../context/TwitchContext";
 
 const Home = () => {
     const [openSite, setOpenSite] = useState(false)
-    const [infoStream, setInfoStream] = useState({
-        loading: true,
-        isOnLive: false
-    })
+    const infoStream = useContext(TwitchContext)
     const theme = useContext(ThemeContext)
-    useEffect(() => {
-        const getInfoStream = async () => {
-            await axios.get('http://localhost:8000/twitch')
-                .then((res) => {
-                    setInfoStream({
-                        ...infoStream,
-                        loading: false,
-                        isOnLive: res.data.type === "live" && true,
-                        titleStream: res.data.title,
-                        viewers: res.data.viewer_count
-                    })
-                })
-                .catch(err => {
-                    console.log(err)
-                    setInfoStream({
-                        ...infoStream,
-                        loading: false
-                    })
-                })
-        }
-        return getInfoStream()
-    }, [])
+    const youtubeInfo = useContext(YoutubeContext)
+
     return <>
-        <Navbar/>
-        {/*<ModalEnter openSites={() => setOpenSite(!openSite)} status={openSite}/>*/}
-        <main>
+        {/**<ModalEnter openSites={() => setOpenSite(!openSite)} status={openSite}/>**/}
+        <main className="mb-5">
             <div className={`container overflow-hidden ${!infoStream.isOnLive ? "pt-8" : ""}`}>
                 {infoStream.loading ? <div className="c-loader"><Loader/></div> : <>
                     {infoStream.isOnLive ? <>
@@ -64,15 +42,13 @@ const Home = () => {
                             d'information je t'invite à te rendre <a href="/" className="text-alert-link">ici</a>.<br/>
                             Et si tu as déjà ton charms, tu peux continuer à soutenir M3ry dans ces aventures toujours
                             plus folle en regardant sa dernière vidéo
-                        </p>
+                        </p>{youtubeInfo.loading ? <Loader/> :
                         <div className="grid-no-live px-2">
-                            <div className="box1">
-                                box 1
-                            </div>
-                            <div className="box2">
-                                box 2
-                            </div>
-                        </div>
+                            {!isEmpty(youtubeInfo.latestVideo) && youtubeInfo.latestVideo.map(video => <Youtube
+                                videoId={video.id.videoId}
+                                key={video.id.videoId}/>)}
+                        </div>}
+
                     </div>}
                 </>}
             </div>
