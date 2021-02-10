@@ -1,4 +1,4 @@
-const {callTwitchApi} = require("../../service/TwitchApi");
+const {callTwitchApi} = require("../../service/Twitch/TwitchApi");
 
 module.exports.getInfoStream = async (req, res) => {
     try{
