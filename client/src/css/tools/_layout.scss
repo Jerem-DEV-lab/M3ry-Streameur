@@ -128,7 +128,7 @@
 
 .grid3{
   display: grid;
-  grid-template-columns: calc(50% - 10px) calc(30% - 10px);
+  grid-template-columns: 640px calc(30% - 10px);
   grid-template-areas: "video desc"
                         "video desc"
                         "video . ";

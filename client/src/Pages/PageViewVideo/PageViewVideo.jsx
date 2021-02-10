@@ -1,14 +1,28 @@
-import React from 'react';
-import Navbar from "../../Components/Navbar/Navbar";
+import React, {useState, useEffect, useContext} from 'react';
+import {useParams} from "react-router-dom";
+import {YoutubeContext} from "../../context/YoutubeContext";
+import {isEmpty} from "../../utils";
+import YoutubeEmbed from "../../Components/YoutubeEmbed";
 
 const PageViewVideo = () => {
+    const {videoId} = useParams()
+    const videos = useContext(YoutubeContext)
+    const [playerInfo, setPlayerInfo] = useState({
+        loading: true
+    })
+    useEffect(() => {
+        if(!isEmpty(videos.items)){
+            const array = videos.items.filter(v => v.id.videoId === videoId)
+            setPlayerInfo({...playerInfo, loading: false, videoDetails: {...array[0]}})
+        }
+    }, [videos.items])
+    //todo: Mettre les données récupérer pour afficher la vidéo
     return <>
-        <Navbar/>
         <main>
             <div className="container pt-12 px-2">
                 <div className="grid3">
                     <div className="box1">
-                        <img src="/assets/player/player.png" alt="" onClick={() => console.log("je clique")}/>
+                        <YoutubeEmbed videoId={videoId}/>
                     </div>
                     <div className="container-info-youtube">
                         <div className="info-youtube-header">

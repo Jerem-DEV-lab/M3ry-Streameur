@@ -8,17 +8,6 @@ export const isEmpty = (value) => {
     );
 }
 
-export const CacheVideos = async (method, key, data) => {
-    switch (method){
-        case method === "setItem":
-            return localStorage.setItem(key, JSON.stringify(data))
-        case method === "getItem":
-            const newObj = localStorage.getItem(key);
-            return JSON.parse(newObj)
-
-    }
-}
-
 /**
  *
  * @param d1
@@ -30,4 +19,13 @@ export function dayDiff(d1, d2)
     d1 = d1 / 86400000;
     d2 = d2 / 86400000;
     return Number(d2 - d1).toFixed(2);
+}
+
+export function getLocalStorageParsed (key){
+    const storedData = localStorage.getItem(key)
+    return JSON.parse(storedData)
+}
+
+export async function setLocalStorageParsed (key, data){
+    return localStorage.setItem(key, await JSON.stringify(data))
 }

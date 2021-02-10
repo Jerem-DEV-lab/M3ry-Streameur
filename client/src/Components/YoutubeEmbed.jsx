@@ -1,7 +1,7 @@
 import React from 'react';
 import YouTube from "react-youtube";
 
-const YoutubeEmbed = ({videoId, key}) => {
+const YoutubeEmbed = ({videoId, key= ""}) => {
     const _onReady = (event) => {
         // access to player in all event handlers via event.target
         event.target.pauseVideo();

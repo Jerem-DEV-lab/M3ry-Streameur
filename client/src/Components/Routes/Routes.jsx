@@ -14,7 +14,7 @@ const Routes = () => {
             <Route component={Home} exact path="/twitch-stream"/>
             <Route component={HelpCharms} exact path="/aide/charms"/>
             <Route component={YoutubeList} exact path="/videos/youtube"/>
-            <Route component={YoutubeList} exact path="/videos/youtube/video_id=:videoId"/>
+            <Route component={PageViewVideo} exact path="/videos/youtube/video_id=:videoId"/>
         </Switch>
     </Router>
 };

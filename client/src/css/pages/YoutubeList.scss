@@ -2,16 +2,57 @@
   margin-top: 150px; //a supprimer
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: calc(var(--space) * 3);
-  row-gap: calc(var(--space) * 3);
-  background: red; // a supprimer ou changer
-
-  .ae{
-  background: green;
-    min-height: 200px;
+  column-gap: calc(var(--space) * 2);
+  row-gap: calc(var(--space) * 2);
+  font-family: $font-alt;
+  color: var(--color);
 }
-  .e{
-    background: yellow;
-    min-height: 200px;
+
+.miniature-video-YT {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "miniature-img miniature-body"
+                       "miniature-img miniature-body"
+                       "miniature-img miniature-footer";
+  border: solid 1px var(--border-color);
+}
+
+.miniature-photo-YT{
+  grid-area: miniature-img;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-color: #{lighten(#171E2E, 5)};
+  img{
+    display: flex;
+    min-height: 190px;
+    max-height: 280px;
+    border-radius: 5px;
+
   }
+}
+.miniature-body-YT{
+  grid-area: miniature-body;
+  padding: .75rem 1rem ;
+  background: var(--color-contrast);
+  .title-video-YT{
+    h4{
+      font-weight: 600;
+      line-height: 20px;
+      margin-bottom: var(--space);
+    }
+  }
+  .desc-video-YT{
+    line-height: 30px;
+    min-height: 150px;
+  }
+}
+
+.miniature-footer-YT{
+  display: flex;
+  justify-content: center;
+  padding: .75rem 1rem ;
+  grid-area:miniature-footer;
 }
