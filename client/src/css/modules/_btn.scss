@@ -2,13 +2,17 @@
 .btn {
   display: inline-block;
   position: relative;
-  padding: .75rem 1.25rem;
+  padding: .35rem 1rem;
   font-size: 1em;
   border: solid 1px transparent;
   transition: all, .5s;
   font-family: $font-alt;
   font-weight: 600;
   cursor: pointer;
+  color: var(--color-contrast);
+  @include dark() {
+    color: #FFFFFF;
+  }
 }
 
 %btn-primary,
@@ -46,5 +50,25 @@
 
   &:hover {
     box-shadow: 0 1px 30px #FFFFFF;
+  }
+}
+
+.button_youtube{
+  @extend %btn;
+  background: var(--red);
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  &:hover{
+    background: var(--red-hover);
+  }
+}
+
+.btn-twitch{
+  @extend %btn;
+  background: var(--twitch);
+  font-size: 14px;
+  border-radius: var(--border-radius);
+  &:hover{
+    background: var(--twitch-hover);
   }
 }

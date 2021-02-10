@@ -26,6 +26,7 @@
   right: 15px;
   padding: 0;
   border: none;
+  color: #FFFFFF;
 }
 
 .btn-humberger.btn-humberger_active {
@@ -158,6 +159,7 @@
   position: absolute;
   top: 68px;
   left: 15px;
+  z-index: 99;
   animation: moveLeftToRight 3s ease-in-out infinite;
   @include up(767.98){
     left: 80px;

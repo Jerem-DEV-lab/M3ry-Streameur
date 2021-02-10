@@ -3,6 +3,7 @@
 
 :root {
   --color: #424242;
+  --color-contrast: #FFFFFF;
   --inverted-color: #494949;
   --text-muted: rgba(#4C4C4C, .5);
   --background-primary: #171E2E;
@@ -11,10 +12,15 @@
   --line-color: #5172BE;
   --line-color-inverted: #5172BE;
   --shadow-color-light: rgba(#000000, .8);
+  --line-height-paragraphe: 25px;
   --space: 8px;
+  --border-radius: 5px;
   --bg-btn: #171E2E;
   --nav-bg: #FFFFFF;
   --red: #f25353;
+  --twitch: #9b77d9;
+  --ubisoft: #5172BE;
+  --youtube: #f25353;
 }
 
 // Outils
@@ -30,14 +36,17 @@
 // =============
 @include dark {
   --color: #FFFFFF;
+  --color-contrast: #424242;
   --inverted-color: #FFFFFF;
   --shadow-color-dark: #FFFFFF;
   --bg-btn: #171E2E;
   --line-color-inverted: #FFFFFF;
-  --btn-hover: rgba(255,255,255, .4);
+  --btn-hover: rgba(255, 255, 255, .4);
   --border-color: #FFFFFF;
   --body-color: #151A26;
   --nav-bg: #f8f7f7;
+  --red-hover: #{darken(#f25353, 10)};
+  --twitch-hover: #{darken(#9b77d9, 10)};
 }
 
 .lighten-dark {
@@ -62,3 +71,6 @@ body {
 
 @import "pages/home";
 @import "pages/modalEnter";
+@import "pages/PageViewVideo";
+@import "pages/HelpCharms";
+@import "pages/YoutubeList";

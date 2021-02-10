@@ -125,6 +125,17 @@
     grid-template-columns: 2fr 1fr;
   }
 }
+
+.grid3{
+  display: grid;
+  grid-template-columns: calc(50% - 10px) calc(30% - 10px);
+  grid-template-areas: "video desc"
+                        "video desc"
+                        "video . ";
+  grid-column-gap: 20px;
+  justify-content: center;
+  align-items: start;
+}
 .grid-footer{
   display: grid;
   grid-template-columns: 1fr;
@@ -154,6 +165,10 @@
 
 .d-flex{
   display: flex !important;
+}
+
+.d-block{
+  display: block;
 }
 .align-center{
   align-items: center;
