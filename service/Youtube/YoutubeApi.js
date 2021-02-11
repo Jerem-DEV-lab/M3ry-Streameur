@@ -13,7 +13,6 @@ async function requestApiYoutube() {
             url: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&maxResults=30&order=date&key=${API_KEY_YOUTUBE}`,
             grant_type: 'client_credentials'
         })
-        console.log(data)
         return data
     } catch (e) {
         console.log(e)

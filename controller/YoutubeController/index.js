@@ -3,7 +3,7 @@ const YoutubeSchema = require("../../model/YoutubeVideo")
 const {getLatestVideos} = require("../../service/Youtube/YoutubeApi");
 const {isEmpty} = require("../../utils");
 const {dayDiff} = require("../../utils");
-const {requestVideoDb, requestApiYoutube} = require("../../service/Youtube/YoutubeApi");
+const {requestVideoDb} = require("../../service/Youtube/YoutubeApi");
 const {storeApiQuery} = require("../../service/Youtube/YoutubeApi");
 
 
@@ -17,9 +17,11 @@ module.exports.getVideoYoutube = async (req, res) => {
             if (DiffTimes >= 1) {
                 const deletedDocs = await DeleteManyQuery(YoutubeSchema)
                 if (deletedDocs.deletedCount >= 1) {
-                    const newCall = await storeApiQuery()
-                    console.log("appel api youtube + stockage bdd trop vieux")
-                    return res.status(200).json(newCall)
+                    await storeApiQuery()
+                    const responseDb = await requestVideoDb();
+
+                    console.log("appel stockage bdd + stockage trop vieux")
+                    return res.status(200).json(responseDb)
                 }
             } else {
                 const response = await requestVideoDb();

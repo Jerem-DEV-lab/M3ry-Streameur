@@ -10,6 +10,7 @@ const YoutubeList = () => {
 
     return <>
         <div className="container mb-5">
+            <h1 className="h1 mt-10">Les vidéos de M3ry :</h1>
             <div className="youtube-layout">
                 {!isEmpty(videos) && videos.loading ? <Loader/> : videos.items.map((v, index) => <>
                     <div className="miniature-video-YT" key={index}>
@@ -26,7 +27,7 @@ const YoutubeList = () => {
                                 <p>{isEmpty(v.snippet.description) ? "Oups aucune description n'a été charger 👻" : v.snippet.description}</p>
                             </div>
                             <div className="miniature-footer-YT">
-                                <button className="button_youtube">Regarder plus</button>
+                                <Link to={`/videos/youtube/video_id=${v.id.videoId}`} className="button_youtube">Voir la vidéo</Link>
                             </div>
                         </div>
                     </div>

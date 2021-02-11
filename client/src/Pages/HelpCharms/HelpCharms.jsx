@@ -23,15 +23,14 @@ const HelpCharms = () => {
                         </ul>
                         En suivant ce lien, tu peux t'abonner directement à @The_M3ry
 
-                        <span className="d-block h2">2eme étapes :</span>
+                        <span className="d-block h2">2ème étapes :</span>
                         <ul>
-                            <li>Tu dois avoir lier ton compte <strong className="text-alert-ubisoft">Ubisoft</strong> à
-                                ton
-                                compte <strong className="text-alert-twitch">Twitch</strong> !
+                            <li>Tu dois avoir lié ton compte <strong className="text-alert-ubisoft">Ubisoft</strong> à
+                                ton compte <strong className="text-alert-twitch">Twitch</strong> !
                             </li>
                         </ul>
-                        <span className="d-block h2">3eme étapes :</span>
-                        Tu as plus qu'à prendre un café et te poser 2h 3h sur le <span className="text-alert-twitch">stream de The_M3ry</span>&nbsp;
+                        <span className="d-block h2">3ème étapes :</span>
+                        Tu as plus qu'a prendre un café et te poser 2h 3h sur le <span className="text-alert-twitch">stream de The_M3ry</span>&nbsp;
                         ou te poser devant les <span className="text-alert-youtube">vidéos de The_M3ry</span>. 🍿
                     </p>
                 </div>
