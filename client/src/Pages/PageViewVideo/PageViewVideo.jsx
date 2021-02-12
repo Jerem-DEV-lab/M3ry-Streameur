@@ -21,9 +21,7 @@ const PageViewVideo = () => {
         <main>
             <div className="container pt-12 px-2">
                 <div className="grid3">
-                    <div className="box1">
                         <YoutubeEmbed videoId={videoId}/>
-                    </div>
                     <div className="container-info-youtube">
                         <div className="info-youtube-header">
                             <h3>Le titre de ta video</h3>

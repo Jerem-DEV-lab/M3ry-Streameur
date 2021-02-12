@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import YouTube from "react-youtube";
 
 const YoutubeEmbed = ({videoId, key= ""}) => {
+    const [playerOn, setPlayerOn] = useState(false)
     const _onReady = (event) => {
         // access to player in all event handlers via event.target
         event.target.pauseVideo();
@@ -14,8 +15,8 @@ const YoutubeEmbed = ({videoId, key= ""}) => {
         },
     };
     return <>
-        <div className="player" key={key}>
-            <YouTube videoId={videoId} opts={opts} onReady={_onReady} />
+        <div className={`player ${playerOn ? "read-on" : ""}`} key={key} onClick={() => setPlayerOn(!playerOn)}>
+            <YouTube videoId={videoId} opts={opts} onReady={_onReady}/>
         </div>
     </>
 };

@@ -1,14 +1,14 @@
 import {useState, useEffect} from "react"
 import Routes from "./Components/Routes/Routes";
 import {ThemeContext} from "./context/ThemeContext";
-import axios from "axios";
 import {YoutubeContext} from "./context/YoutubeContext";
 import {TwitchContext} from "./context/TwitchContext";
-import {useDataYoutube} from "./Hooks/useDataYoutube";
+import {useDataYoutube} from "./Hooks/Youtube/useDataYoutube";
+import useDataTwitch from "./Hooks/TwitchHook/useDataTwitch";
+
 function App() {
-  /*
+  /**
   * Gestion du theme
-  * ============================
   * ============================
   * */
   const [themeState, setThemeState] = useState({isDark: false, loading: true})
@@ -28,45 +28,17 @@ function App() {
     }
   }, [])
 
-  /*
+  /**
   * Gestion des contextes Youtube & Twitch
-  * ============================
-  * ============================
+  * ======================================
   * */
-
   /*Youtube*/
   const youtubeState = useDataYoutube()
   /*-- Fin youtube --*/
 
   /*Twitch */
-  const [twitchState, setTwitchState] = useState({
-    loading: true,
-    isOnLive: false,
-    titleStream: "",
-    viewers: ""
-  })
-  useEffect(() => {
-    const getInfoStream = async () => {
-      await axios.get('http://localhost:8000/twitch')
-          .then((res) => {
-            setTwitchState({
-              ...twitchState,
-              loading: false,
-              isOnLive: res.data.type === "live" && true,
-              titleStream: res.data.title,
-              viewers: res.data.viewer_count
-            })
-          })
-          .catch(err => {
-            console.log(err)
-            setTwitchState({
-              ...twitchState,
-              loading: false
-            })
-          })
-    }
-    return getInfoStream()
-  }, [])
+  const twitchState = useDataTwitch()
+  /*-- Fin twitch --*/
 
   return <>
     <ThemeContext.Provider value={themeState}>

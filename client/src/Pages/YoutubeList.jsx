@@ -6,13 +6,13 @@ import {isEmpty} from "../utils";
 import Footer from "../Components/Footer/Footer";
 
 const YoutubeList = () => {
-    const videos = useContext(YoutubeContext)
+    const globalState = useContext(YoutubeContext)
 
     return <>
         <div className="container mb-5">
             <h1 className="h1 mt-10">Les vidéos de M3ry :</h1>
             <div className="youtube-layout">
-                {!isEmpty(videos) && videos.loading ? <Loader/> : videos.items.map((v, index) => <>
+                {!isEmpty(globalState) && globalState.loading ? <Loader/> : globalState.videos.map((v, index) => <>
                     <div className="miniature-video-YT" key={index}>
                         <div className="miniature-photo-YT">
                             <Link to={`/videos/youtube/video_id=${v.id.videoId}`}>

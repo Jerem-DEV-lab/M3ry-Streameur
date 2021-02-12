@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import Footer from "../../Components/Footer/Footer";
 import ModalEnter from "../../Components/ModalEnter";
 import {ThemeContext} from "../../context/ThemeContext";
@@ -16,7 +16,6 @@ const Home = () => {
     const infoStream = useContext(TwitchContext)
     const theme = useContext(ThemeContext)
     const youtubeInfo = useContext(YoutubeContext)
-
     return <>
         {/**<ModalEnter openSites={() => setOpenSite(!openSite)} status={openSite}/>**/}
         <main className="mb-5">
