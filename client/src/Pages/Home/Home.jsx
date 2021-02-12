@@ -9,6 +9,7 @@ import {isEmpty} from "../../utils";
 import Youtube from "../../Components/YoutubeEmbed";
 import {YoutubeContext} from "../../context/YoutubeContext";
 import {TwitchContext} from "../../context/TwitchContext";
+import {Link} from "react-router-dom";
 
 const Home = () => {
     const [openSite, setOpenSite] = useState(false)
@@ -44,7 +45,7 @@ const Home = () => {
                             src="/assets/navbar/charmSVG.svg"
                             alt="charms gagnable en étant abonner à The_M3ry"/></h1>
                         <p>Mais rien est perdu ! Tu peux gagner malgré tous ton charms ! Si tu as besoin de plus
-                            d'information je t'invite à te rendre <a href="/" className="text-alert-link">ici</a>.<br/>
+                            d'information je t'invite à te rendre <Link to="/aide/charms" className="text-alert-link">ici</Link>.<br/>
                             Et si tu as déjà ton charms, tu peux continuer à soutenir M3ry dans ces aventures toujours
                             plus folle en regardant sa dernière vidéo
                         </p>{youtubeInfo.loading ? <Loader/> :
