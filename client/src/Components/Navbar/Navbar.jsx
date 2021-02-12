@@ -44,7 +44,7 @@ const Navbar = () => {
                     <ul>
                         {SocialNetworks.map(socialLink => <>
                             <li key={socialLink.label} className="social-network-item">
-                                <a href={socialLink.url}>
+                                <a href={socialLink.url} target="_blank" rel="noopener noreferer">
                                     <img src={`/assets/icons/${socialLink.icons}`} alt={socialLink.label}/>
                                 </a>
                             </li>

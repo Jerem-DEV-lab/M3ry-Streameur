@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import {YoutubeContext} from "../context/YoutubeContext";
 import Loader from "../Components/ui/Loader";
 import {isEmpty} from "../utils";
-import Footer from "../Components/Footer/Footer";
 
 const YoutubeList = () => {
     const globalState = useContext(YoutubeContext)

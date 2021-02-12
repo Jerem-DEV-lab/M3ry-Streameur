@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useContext} from 'react';
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {YoutubeContext} from "../../context/YoutubeContext";
 import {dateTimeParser, isEmpty} from "../../utils";
 import YoutubeEmbed from "../../Components/YoutubeEmbed";
-import CommentsYoutube from "../../Components/CommentsYoutube/CommentsYoutube";
+import {FaArrowLeft} from "react-icons/fa";
 
 const PageViewVideo = () => {
     const {videoId} = useParams()
@@ -27,11 +27,13 @@ const PageViewVideo = () => {
             }
         })
     }, [globaleState.comments])
-
     return <>
         <main className="mb-5">
             {!isEmpty(stateVideo) && <>
                 <div className="container pt-12">
+                    <div className="link-back">
+                        <Link to="/videos/youtube"> <FaArrowLeft/> Retour en arrière</Link>
+                    </div>
                     <div className="grid3">
                         <YoutubeEmbed videoId={videoId}/>
                         <div className="container-info-youtube">
@@ -45,8 +47,10 @@ const PageViewVideo = () => {
                                 </p>
                             </div>
                             <div className="info-youtube-footer">
-                                <a href="/" className="button_youtube">Like</a>
-                                <a href="/" className="button_share_youtube">Partager</a>
+                                <a href={`https://www.youtube.com/watch?v=${videoId}&feature=emb_logo`} target="_blank"
+                                   rel="noreferrer noopener " className="button_youtube">Like</a>
+                                <a href="https://www.youtube.com/c/M3RYLAND/featured" className="button_share_youtube"
+                                   target="_blank" rel="noreferrer noopener ">Abonne toi</a>
                             </div>
                         </div>
                     </div>

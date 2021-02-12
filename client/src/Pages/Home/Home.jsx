@@ -1,5 +1,4 @@
 import React, {useState, useContext} from 'react';
-import Footer from "../../Components/Footer/Footer";
 import ModalEnter from "../../Components/ModalEnter";
 import {ThemeContext} from "../../context/ThemeContext";
 import TwitchChat from "../../Components/Twitch/TwitchChat";

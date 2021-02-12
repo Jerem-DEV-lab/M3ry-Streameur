@@ -23,16 +23,25 @@ const Footer = () => {
                     <div className="footer-support-link mobile-hidden">
                         <div className="grid-footer2">
                             <div className="support-link-img">
-                                <img src="/assets/footer/support-don.jpg" alt=""/>
+                                <a href="https://m3ry.live/tip" target="_blank" rel="noopener noreferer">
+                                    <img src="/assets/footer/support-don.jpg" alt="faire un don pour the_m3ry"/>
+                                </a>
                             </div>
                             <div className="support-link-img">
-                                <img src="/assets/footer/support-insta.jpg" alt=""/>
+                                <a href="https://www.instagram.com/the_m3ry/" target="_blank" rel="noopener noreferer">
+                                    <img src="/assets/footer/support-insta.jpg" alt="instagram de the_m3ry"/>
+                                </a>
                             </div>
                             <div className="support-link-img">
-                                <img src="/assets/footer/support-twitter.jpg" alt=""/>
+                                <a href="https://twitter.com/The_M3RY" target="_blank" rel="noopener noreferer">
+                                    <img src="/assets/footer/support-twitter.jpg" alt="twitter de the_m3ry"/>
+                                </a>
                             </div>
                             <div className="support-link-img">
-                                <img src="/assets/footer/support-discord.jpg" alt=""/>
+                                <a href="https://discord.com/invite/zHNsEYFxKz" target="_blank"
+                                   rel="noopener noreferer">
+                                    <img src="/assets/footer/support-discord.jpg" alt="discord communautaire de m3ry"/>
+                                </a>
                             </div>
                         </div>
                     </div>
