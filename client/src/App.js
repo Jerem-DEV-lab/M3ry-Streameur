@@ -5,26 +5,44 @@ import {YoutubeContext} from "./context/YoutubeContext";
 import {TwitchContext} from "./context/TwitchContext";
 import {useDataYoutube} from "./Hooks/Youtube/useDataYoutube";
 import useDataTwitch from "./Hooks/TwitchHook/useDataTwitch";
+import {getLocalStorageParsed, setLocalStorageParsed} from "./utils";
 
 function App() {
   /**
-  * Gestion du theme
-  * ============================
-  * */
+   * Gestion du theme
+   * ============================
+   * */
   const [themeState, setThemeState] = useState({isDark: false, loading: true})
   const matchMedia = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-  const getPreferenceTheme = localStorage.getItem("Mery_Theme")
+  const getPreferenceTheme = getLocalStorageParsed("M3ry_Theme")
+
   useEffect(() => {
-    if (!getPreferenceTheme) {
-      if (matchMedia) {
+    const body = document.body;
+    if (getPreferenceTheme) {
+      if (getPreferenceTheme.isDark) {
+        body.classList.remove("theme-light")
+        body.classList.add("theme-dark")
         setThemeState({isDark: true, loading: false})
       } else {
         setThemeState({isDark: false, loading: false})
+        body.classList.remove("theme-dark")
+        body.classList.add("theme-light")
       }
     }
-    if (getPreferenceTheme) {
-      const themePref = JSON.parse(getPreferenceTheme)
-      setThemeState({isDark: themePref.isDark, loading: false})
+    else {
+      if (!getLocalStorageParsed("M3ry_Theme")) {
+        if (matchMedia) {
+          setThemeState({isDark: true, loading: false})
+          body.classList.remove("theme-light")
+          body.classList.add("theme-dark")
+          setLocalStorageParsed("M3ry_Theme", {isDark: true, loading: false})
+        } else {
+          setThemeState({isDark: false, loading: false})
+          body.classList.remove("theme-dark")
+          body.classList.add("theme-light")
+          setLocalStorageParsed("M3ry_Theme", {isDark: false, loading: false})
+        }
+      }
     }
   }, [])
 

@@ -73,13 +73,28 @@
   }
 }
 
-.button_share_youtube{
+.button_share_youtube {
   @extend %btn;
   background: var(--background-primary);
   border-radius: var(--border-radius);
   font-size: 14px;
-  &:hover{
+
+  &:hover {
     background: var(--color);
-    color: var(--color-contrast)!important;
+    color: var(--color-contrast) !important;
+  }
+}
+
+%link-back,
+.link-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  overflow: hidden;
+  margin: .5rem .7rem;
+
+  &:hover{
+    color: var(--youtube);
   }
 }

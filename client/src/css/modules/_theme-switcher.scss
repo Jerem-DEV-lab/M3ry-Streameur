@@ -1,0 +1,45 @@
+#theme-switcher{
+  position: fixed;
+  right: 50px;
+  bottom: 80px;
+}
+
+.label-theme-switcher{
+  background-color: #292C35;
+  border-radius: 50px;
+  height: 26px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+}
+.ball{
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: var(--color-contrast);
+  height: 22px;
+  width: 22px;
+  transition: transform .2s linear;
+}
+#theme{
+  opacity: 0;
+  position: absolute;
+}
+
+#theme:checked + .label-theme-switcher{
+  background-color: var(--color);
+}
+#theme:checked + .label-theme-switcher .ball{
+  transform: translateX(24px);
+  background-color: var(--color-contrast);
+}
+svg.moon{
+  color: yellow;
+}
+svg.sun{
+  color: orange;
+}

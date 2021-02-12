@@ -6,6 +6,7 @@ import PageViewVideo from "../../Pages/PageViewVideo/PageViewVideo";
 import Navbar from "../Navbar/Navbar";
 import YoutubeList from "../../Pages/YoutubeList";
 import Footer from "../Footer/Footer";
+import ThemeSwitcher from "../ui/ThemeSwitch";
 
 const Routes = () => {
     return <Router>
@@ -17,8 +18,8 @@ const Routes = () => {
             <Route component={YoutubeList} exact path="/videos/youtube"/>
             <Route component={PageViewVideo} exact path="/videos/youtube/video_id=:videoId"/>
         </Switch>
+        <ThemeSwitcher/>
         <Footer/>
-
     </Router>
 };
 
