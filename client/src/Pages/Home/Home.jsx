@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState,useEffect, useContext} from 'react';
 import ModalEnter from "../../Components/ModalEnter";
 import {ThemeContext} from "../../context/ThemeContext";
 import TwitchChat from "../../Components/Twitch/TwitchChat";
@@ -15,6 +15,13 @@ const Home = () => {
     const infoStream = useContext(TwitchContext)
     const theme = useContext(ThemeContext)
     const youtubeInfo = useContext(YoutubeContext)
+    const [latestVideo, setLatestVideo] = useState([])
+    useEffect(() => {
+        if(!isEmpty(youtubeInfo.videos))
+        {
+            setLatestVideo([youtubeInfo.videos[0], youtubeInfo.videos[1]])
+        }
+    }, [youtubeInfo])
     return <>
         {/**<ModalEnter openSites={() => setOpenSite(!openSite)} status={openSite}/>**/}
         <main className="mb-5">
@@ -42,7 +49,7 @@ const Home = () => {
                             plus folle en regardant sa dernière vidéo
                         </p>{youtubeInfo.loading ? <Loader/> :
                         <div className="grid-no-live px-2">
-                            {!isEmpty(youtubeInfo.latestVideo) && youtubeInfo.latestVideo.map(video => <Youtube
+                            {!isEmpty(latestVideo) && latestVideo.map(video => <Youtube
                                 videoId={video.id.videoId}
                                 key={video.id.videoId}/>)}
                         </div>}
