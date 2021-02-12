@@ -1,5 +1,6 @@
 const axios = require("axios");
 const YoutubeVideoSchema = require("../../model/YoutubeVideo");
+const YoutubeCommentSchema = require("../../model/YoutubeComments");
 const {API_KEY_YOUTUBE, CHANNEL_ID} = require("../../config");
 
 /**
@@ -20,6 +21,27 @@ async function requestApiYoutube() {
 }
 
 /**
+ * @description Fais un appel à l'api de youtube pour récupérer tout les commentaires de la chaînes youtube
+ * @returns {Promise<*>}
+ */
+async function requestComments() {
+    try {
+        return await axios({
+            method: "get",
+            url: `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&allThreadsRelatedToChannelId=UCXLIubvjDYznTp7RctPRimA&maxResults=30&key=AIzaSyBtq1KHkX8-MVPRR7yulyFv0hyXdLG4ERY`,
+            grant_type: 'client_credentials'
+        }).then(res => {
+            return res.data
+        })
+            .catch(err => {
+                console.log(err)
+            })
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+/**
  * @Desc Permet de récupérer les vidéos dans la base de données
  * @returns {Promise<Array<Document>>}
  */
@@ -29,6 +51,16 @@ async function requestVideoDb() {
         return videos
     } catch (err) {
         console.log(err)
+    }
+}
+
+async function requestCommentDb() {
+    try{
+        return await YoutubeCommentSchema.find().exec()
+            .then(res => res)
+            .catch(err => err)
+    }catch (e) {
+
     }
 }
 
@@ -43,14 +75,30 @@ async function storeApiQuery() {
             items: videos.items,
         })
         await preStore.save();
+        console.log("appel api youtube videos + stockage")
         return preStore
     } catch (e) {
         console.log(e)
     }
 }
-
+async function storeCommentApi() {
+    try{
+        const commentsApi = await requestComments()
+        const commentSchema = new YoutubeCommentSchema({
+            items: commentsApi.items
+        })
+        await commentSchema.save();
+        console.log("appel api youtube comments + stockage")
+        return commentSchema
+    }catch (e) {
+        console.log(e)
+    }
+}
 module.exports = {
     requestApiYoutube,
     requestVideoDb,
-    storeApiQuery
+    storeApiQuery,
+    requestComments,
+    storeCommentApi,
+    requestCommentDb
 }
