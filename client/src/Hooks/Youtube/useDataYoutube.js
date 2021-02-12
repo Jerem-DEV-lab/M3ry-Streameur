@@ -37,7 +37,6 @@ export function useDataYoutube() {
     }
     useEffect(() => {
         if (!getLocalStorage("m3ry_site_state")) {
-            console.log("jappel la db")
             return fetchDataYoutube()
         } else{
             const dataLocal = getLocalStorageParsed("m3ry_site_state")

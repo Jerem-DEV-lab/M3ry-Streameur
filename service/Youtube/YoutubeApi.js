@@ -28,9 +28,10 @@ async function requestComments() {
     try {
         return await axios({
             method: "get",
-            url: `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&allThreadsRelatedToChannelId=UCXLIubvjDYznTp7RctPRimA&maxResults=30&key=AIzaSyBtq1KHkX8-MVPRR7yulyFv0hyXdLG4ERY`,
+            url: `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&allThreadsRelatedToChannelId=UCXLIubvjDYznTp7RctPRimA&maxResults=300&key=AIzaSyBtq1KHkX8-MVPRR7yulyFv0hyXdLG4ERY`,
             grant_type: 'client_credentials'
         }).then(res => {
+            console.log(res.data)
             return res.data
         })
             .catch(err => {

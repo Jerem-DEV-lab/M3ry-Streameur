@@ -5,7 +5,7 @@
   --color: #424242;
   --color-contrast: #FFFFFF;
   --inverted-color: #494949;
-  --text-muted: rgba(#4C4C4C, .5);
+  --text-muted: rgba(#494949, .5);
   --background-primary: #171E2E;
   --body-color: #E9E9E9;
   --border-color: #efefefef;
@@ -45,6 +45,7 @@
   --border-color: #FFFFFF;
   --body-color: #151A26;
   --nav-bg: #f8f7f7;
+  --text-muted: #{lighten(#5172BE, 20)};
   --red-hover: #{darken(#f25353, 10)};
   --twitch-hover: #{darken(#9b77d9, 10)};
 }

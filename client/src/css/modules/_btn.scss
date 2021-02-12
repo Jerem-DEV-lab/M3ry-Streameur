@@ -72,3 +72,14 @@
     background: var(--twitch-hover);
   }
 }
+
+.button_share_youtube{
+  @extend %btn;
+  background: var(--background-primary);
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  &:hover{
+    background: var(--color);
+    color: var(--color-contrast)!important;
+  }
+}

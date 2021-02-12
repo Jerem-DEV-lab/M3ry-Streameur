@@ -1,9 +1,8 @@
 import React from 'react';
-import Footer from "../../Components/Footer/Footer";
 
 const HelpCharms = () => {
     return <>
-        <main className="mb-3">
+        <main className="mb-5">
             <div className="container mt-10">
                 <div className="container-header">
                     <div className="charms-img">
@@ -42,7 +41,6 @@ const HelpCharms = () => {
                 </div>
             </div>
         </main>
-        <Footer/>
     </>
 };
 
