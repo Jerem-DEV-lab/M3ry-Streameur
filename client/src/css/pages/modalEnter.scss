@@ -33,6 +33,7 @@
 }
 
 .modal-enter .header-modal {
+  color: #FFFFFF;
   margin-top:30px ;
   @include up(767.8){
     margin-top: 100px;

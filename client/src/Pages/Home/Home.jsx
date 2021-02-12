@@ -23,7 +23,7 @@ const Home = () => {
         }
     }, [youtubeInfo])
     return <>
-        {/**<ModalEnter openSites={() => setOpenSite(!openSite)} status={openSite}/>**/}
+        <ModalEnter openSites={() => setOpenSite(!openSite)} status={openSite}/>
         <main className="mb-5">
             <div className={`container overflow-hidden ${!infoStream.isOnLive ? "pt-8" : ""}`}>
                 {infoStream.loading ? <div className="c-loader"><Loader/></div> : <>

@@ -14,7 +14,7 @@ const Footer = () => {
                         <h3>Retrouvez moi sur les réseaux sociaux :</h3>
                         <ul>
                             {SocialNetworks.map(s => <li>
-                                <a href={"/youtube"} target="_blank" rel="noreferrer nooppener nofollow ">
+                                <a href={s.url} target="_blank" rel="noreferrer nooppener nofollow ">
                                     <img src={`/assets/icons/${s.icons}`} alt={`Icon pour le lien de ${s.label}`}/>
                                 </a>
                             </li>)}
@@ -24,7 +24,7 @@ const Footer = () => {
                         <div className="grid-footer2">
                             <div className="support-link-img">
                                 <a href="https://m3ry.live/tip" target="_blank" rel="noopener noreferer">
-                                    <img src="/assets/footer/support-don.jpg" alt="faire un don pour the_m3ry"/>
+                                    <img src="/assets/footer/support-don.jpg" alt="faire un don de the_m3ry"/>
                                 </a>
                             </div>
                             <div className="support-link-img">
