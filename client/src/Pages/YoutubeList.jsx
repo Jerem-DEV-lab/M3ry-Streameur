@@ -9,8 +9,8 @@ const YoutubeList = () => {
 
     return <>
         <main className="mb-5">
-            <div className="container ">
-                <h1 className="h1 mt-10">Les vidéos de M3ry :</h1>
+            <div className="container mt-12">
+                <h1 className="youtube-title">Les vidéos de M3ry :</h1>
                 <div className="youtube-layout">
                     {!isEmpty(globalState) && globalState.loading ? <Loader/> : globalState.videos.map((v, index) => <>
                         <div className="miniature-video-YT" key={index}>
