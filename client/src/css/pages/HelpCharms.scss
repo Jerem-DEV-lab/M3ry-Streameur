@@ -9,6 +9,7 @@
 }
 
 .container-body-text{
+  padding: .75rem;
   p{
     line-height: 55px;
     font-size: 18px;
@@ -23,5 +24,15 @@
     display: flex;
     justify-content: center;
     padding: .5rem;
+  }
+}
+@include down(943){
+  .container-body-text{
+    h1{
+      font-size: 35px;
+    }
+    span.h2{
+      font-size: 25px;
+    }
   }
 }
