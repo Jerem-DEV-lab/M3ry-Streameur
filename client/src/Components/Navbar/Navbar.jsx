@@ -5,9 +5,12 @@ import {Link, NavLink} from "react-router-dom";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen)
+    }
     return <>
         <div className={`overlay-navbar ${menuOpen ? "overlay-active" : "nav-disable"}`}
-             onClick={() => setMenuOpen(!menuOpen)}/>
+             onClick={toggleMenu}/>
         <div className="nav-container">
             <div className="nav-logo">
                 <Link to="/">
@@ -21,7 +24,7 @@ const Navbar = () => {
                 </Link>
             </div>
             <button className={`btn-humberger ${menuOpen ? "btn-humberger_active" : ""}`}
-                    onClick={() => setMenuOpen(!menuOpen)}>
+                    onClick={toggleMenu}>
                 {!menuOpen ? <FaBars size={30}/> : <FaTimes size={30}/>}
             </button>
             <div className={`nav-primary ${menuOpen ? "nav-open" : ""}`}>
@@ -33,7 +36,7 @@ const Navbar = () => {
                     <ul className="nav-list">
                         {MenuItems.map((link) => <>
                             <li key={link.label}>
-                                <NavLink to={link.url} activeClassName="active" className="nav-item">{link.icons}&nbsp;{link.label}</NavLink>
+                                <NavLink to={link.url} activeClassName="active" className="nav-item" onClick={toggleMenu}>{link.icons}&nbsp;{link.label}</NavLink>
                             </li>
                         </>)}
                     </ul>
