@@ -134,11 +134,61 @@
                         "video . ";
   grid-column-gap: 20px;
   justify-content: center;
+  @include down(991.99) {
+    grid-template-columns: 1fr;
+    grid-template-areas: "video"
+                         "desc";
+    .player {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  @include down(669.99) {
+    .player #widget2 {
+      width: 360px;
+      height: 180px;
+    }
+  }
 }
-.grid-footer{
+
+@include down(720.99) {
+  .container-info-youtube {
+    width: 93%;
+    margin: auto;
+  }
+}
+
+@include down(489.99) {
+  .container-info-youtube {
+    width: 75%;
+    margin: auto;
+  }
+}
+@include down(403.99) {
+  .player #widget2{
+    width: 260px;
+    height: 120px;
+  }
+  .container-info-youtube {
+    width: 75%;
+    margin: auto;
+  }
+}
+@include down(371.99) {
+  .player #widget2{
+    width: 230px;
+    height: auto;
+  }
+  .container-info-youtube {
+    width: 50%;
+    margin: auto;
+  }
+}
+
+.grid-footer {
   display: grid;
   grid-template-columns: 1fr;
-  min-height:200px;
+  min-height: 200px;
   @include up(767.98) {
     grid-template-columns: 1fr 1fr 1fr;
   }
