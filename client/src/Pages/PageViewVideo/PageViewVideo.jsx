@@ -34,7 +34,7 @@ const PageViewVideo = () => {
                     <div className="link-back">
                         <Link to="/videos/youtube"> <FaArrowLeft/> Retour en arrière</Link>
                     </div>
-                    <div className="grid3">
+                    <div className="container-view-video">
                         <YoutubeEmbed videoId={videoId}/>
                         <div className="container-info-youtube">
                             <div className="info-youtube-header">
@@ -47,10 +47,12 @@ const PageViewVideo = () => {
                                 </p>
                             </div>
                             <div className="info-youtube-footer">
-                                <a href={`https://www.youtube.com/watch?v=${videoId}&feature=emb_logo`} target="_blank"
-                                   rel="noreferrer noopener " className="button_youtube">Like</a>
-                                <a href="https://www.youtube.com/c/M3RYLAND/featured" className="button_share_youtube"
-                                   target="_blank" rel="noreferrer noopener ">Abonne toi</a>
+                               <div className="btn-group">
+                                   <a href={`https://www.youtube.com/watch?v=${videoId}&feature=emb_logo`} target="_blank"
+                                      rel="noreferrer noopener " className="button_youtube mr-2">Like</a>
+                                   <a href="https://www.youtube.com/c/M3RYLAND/featured" className="button_share_youtube"
+                                      target="_blank" rel="noreferrer noopener ">Abonne toi</a>
+                               </div>
                             </div>
                         </div>
                     </div>

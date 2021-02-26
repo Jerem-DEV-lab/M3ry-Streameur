@@ -8,15 +8,13 @@ const YoutubeEmbed = ({videoId, key= ""}) => {
         event.target.pauseVideo();
     }
     const opts = {
-        height: '390',
-        width: '640',
         playerVars: {
             autoplay: 0,
         },
     };
     return <>
         <div className={`player ${playerOn ? "read-on" : ""}`} key={key} onClick={() => setPlayerOn(!playerOn)}>
-            <YouTube videoId={videoId} opts={opts} onReady={_onReady}/>
+            <YouTube videoId={videoId} opts={opts} onReady={_onReady} />
         </div>
     </>
 };

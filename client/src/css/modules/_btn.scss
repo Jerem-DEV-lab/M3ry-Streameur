@@ -59,6 +59,7 @@
   border-radius: var(--border-radius);
   font-size: 14px;
   &:hover{
+    color: var(--color);
     background: var(--red-hover);
   }
 }
@@ -70,12 +71,14 @@
   border-radius: var(--border-radius);
   &:hover{
     background: var(--twitch-hover);
+    color: var(--color);
   }
 }
 
 .button_share_youtube {
   @extend %btn;
   background: var(--background-primary);
+  border: solid 1px var(--border-color);
   border-radius: var(--border-radius);
   font-size: 14px;
 
@@ -97,4 +100,10 @@
   &:hover{
     color: var(--youtube);
   }
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

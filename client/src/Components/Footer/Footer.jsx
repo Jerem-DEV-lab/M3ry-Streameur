@@ -1,9 +1,12 @@
 import React from 'react';
 import {SocialNetworks} from "../Navbar/MenuItems";
+import ThemeSwitcher from "../ui/ThemeSwitch";
 
 const Footer = () => {
     return <>
-        <footer>
+        <footer className="footer">
+
+            <ThemeSwitcher/>
             <div className="container">
                 <div className="grid-footer">
                     <div className="footer-logo">
@@ -13,7 +16,7 @@ const Footer = () => {
                     <div className="footer-socialNetwork">
                         <h3>Retrouvez moi sur les réseaux sociaux :</h3>
                         <ul>
-                            {SocialNetworks.map(s => <li>
+                            {SocialNetworks.map((s, index) => <li key={index}>
                                 <a href={s.url} target="_blank" rel="noreferrer nooppener nofollow ">
                                     <img src={`/assets/icons/${s.icons}`} alt={`Icon pour le lien de ${s.label}`}/>
                                 </a>

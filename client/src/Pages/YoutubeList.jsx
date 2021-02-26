@@ -3,35 +3,16 @@ import {Link} from "react-router-dom";
 import {YoutubeContext} from "../context/YoutubeContext";
 import Loader from "../Components/ui/Loader";
 import {isEmpty} from "../utils";
+import {FaPlayCircle} from "react-icons/fa";
 
 const YoutubeList = () => {
     const globalState = useContext(YoutubeContext)
-
     return <>
-        <main className="mb-5">
+        <main>
             <div className="container mt-12">
-                <h1 className="youtube-title">Les vidéos de M3ry :</h1>
                 <div className="youtube-layout">
-                    {!isEmpty(globalState) && globalState.loading ? <Loader/> : globalState.videos.map((v, index) => <>
-                        <div className="miniature-video-YT" key={index}>
-                            <div className="miniature-photo-YT">
-                                <Link to={`/videos/youtube/video_id=${v.id.videoId}`}>
-                                    <img src={v.snippet.thumbnails.medium.url} alt={v.snippet.title}/>
-                                </Link>
-                            </div>
-                            <div className="miniature-body-YT">
-                                <div className="title-video-YT">
-                                    <h4>{v.snippet.title}</h4>
-                                </div>
-                                <div className="desc-video-YT">
-                                    <p>{isEmpty(v.snippet.description) ? "Oups aucune description n'a été charger 👻" : v.snippet.description}</p>
-                                </div>
-                                <div className="miniature-footer-YT">
-                                    <Link to={`/videos/youtube/video_id=${v.id.videoId}`} className="button_youtube">Voir la vidéo</Link>
-                                </div>
-                            </div>
-                        </div>
-                    </>)}
+                    {!isEmpty(globalState.videos) && globalState.videos.map((v, index) =>
+                        <RenderMiniatureVideo video={v}/>)}
                 </div>
             </div>
         </main>
@@ -39,3 +20,30 @@ const YoutubeList = () => {
 };
 
 export default YoutubeList;
+
+export const RenderMiniatureVideo = ({video}) => {
+    const thumbnailVideo = video.snippet.thumbnails.high.url
+    const titleVideo = video.snippet.title
+    return <>
+        <div className="miniature-video">
+            <div className="thumbnail-video">
+                <img src={thumbnailVideo} alt="placeholder"/>
+            </div>
+            <div className="video-content">
+                <div className="title-video" title={titleVideo}>
+                    {titleVideo}
+                </div>
+                <div className="description-video">
+                    <p>
+                        {isEmpty(video.snippet.description) ? "Oups aucune description n'a été charger 👻" : video.snippet.description}
+
+                    </p>
+                </div>
+                <div className="btn-group">
+                    <Link to={`/videos/youtube/video_id=${video.id.videoId}`} className="button_youtube">Voir la
+                        vidéo <FaPlayCircle/></Link>
+                </div>
+            </div>
+        </div>
+    </>
+}

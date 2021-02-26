@@ -13,7 +13,7 @@ const Navbar = () => {
              onClick={toggleMenu}/>
         <div className="nav-container">
             <div className="nav-logo">
-                <Link to="/">
+                <Link to="/twitch-stream">
                     <img src="/assets/navbar/Logo.png" alt="logo"/>
                 </Link>
             </div>
@@ -34,24 +34,21 @@ const Navbar = () => {
 
                     </div>
                     <ul className="nav-list">
-                        {MenuItems.map((link) => <>
-                            <li key={link.label}>
-                                <NavLink to={link.url} activeClassName="active" className="nav-item" onClick={toggleMenu}>{link.icons}&nbsp;{link.label}</NavLink>
-                            </li>
-                        </>)}
+                        {MenuItems.map((link, index) => <li key={index}>
+                            <NavLink to={link.url} activeClassName="active" className="nav-item"
+                                     onClick={toggleMenu}>{link.icons}&nbsp;{link.label}</NavLink>
+                        </li>)}
                     </ul>
                 </nav>
 
                 <div className="nav-footer">
                     <h3>Retrouvez moi sur mes réseaux</h3>
                     <ul>
-                        {SocialNetworks.map(socialLink => <>
-                            <li key={socialLink.label} className="social-network-item">
-                                <a href={socialLink.url} target="_blank" rel="noopener noreferer">
-                                    <img src={`/assets/icons/${socialLink.icons}`} alt={socialLink.label}/>
-                                </a>
-                            </li>
-                        </>)}
+                        {SocialNetworks.map((socialLink, index) => <li key={index} className="social-network-item">
+                            <a href={socialLink.url} target="_blank" rel="noopener noreferer">
+                                <img src={`/assets/icons/${socialLink.icons}`} alt={socialLink.label}/>
+                            </a>
+                        </li>)}
                     </ul>
                 </div>
 

@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import axios from "axios";
-import {getLocalStorage, getLocalStorageParsed, setLocalStorageParsed} from "../../utils";
+import {getLocalStorage, getLocalStorageParsed} from "../../utils";
 
 export function useDataYoutube() {
     const [state, setState] = useState({
@@ -14,12 +14,6 @@ export function useDataYoutube() {
             .then(res => {
                 setState({
                     ...state,
-                    comments: res.data.comments,
-                    videos: res.data.items,
-                    dateStorage: res.data.dateStorage,
-                    loading: false
-                })
-                setLocalStorageParsed("m3ry_site_state", {
                     comments: res.data.comments,
                     videos: res.data.items,
                     dateStorage: res.data.dateStorage,

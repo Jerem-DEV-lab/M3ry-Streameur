@@ -18,7 +18,6 @@ const Routes = () => {
             <Route component={PageViewVideo} exact path="/videos/youtube/video_id=:videoId"/>
             <Redirect to="/twitch-stream" />
         </Switch>
-        <ThemeSwitcher/>
         <Footer/>
     </Router>
 };

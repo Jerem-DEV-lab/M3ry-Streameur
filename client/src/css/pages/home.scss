@@ -155,10 +155,22 @@ main {
   }
 }
 
-
+/*
 iframe.frame-youtube{
  height: 550px;
   width: 50%;
+}*/
+
+.no-live > h1 {
+  font-size: 28px;
+  line-height: 46px;
 }
 
-//1041 => titre + taille titre
+.grid-no-live {
+  display: grid;
+  grid-template-columns: 1fr;
+  @include up(991.99){
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+  }
+}
